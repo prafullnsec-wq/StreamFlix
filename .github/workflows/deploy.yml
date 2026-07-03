@@ -3,11 +3,11 @@ name: Deploy StreamFlix to Azure VM
 on:
   push:
     branches:
-      - build  # Kyunki is repository ki default branch ka naam 'build' hai
+      - build
 
 jobs:
   deploy:
-    runs-on: self-hosted  # Yeh aapki register ki hui appvm2 ko target karega
+    runs-on: self-hosted
 
     steps:
     - name: Checkout StreamFlix Code
@@ -15,7 +15,6 @@ jobs:
 
     - name: Clean Old Files and Copy StreamFlix to Nginx
       run: |
-        # Purani files clear karke naya StreamFlix code /var/www/html me daalna
         sudo rm -rf /var/www/html/*
         sudo cp -r * /var/www/html/
         
